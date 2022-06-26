@@ -22,17 +22,9 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss",
-              "src/theme.scss"
-            ],
-            "scripts": [
-              "node_modules/marked/marked.min.js"
-            ]
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.scss", "src/theme.scss"],
+            "scripts": ["node_modules/marked/marked.min.js"]
           },
           "configurations": {
             "production": {
@@ -93,26 +85,15 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss",
-              "src/theme.scss"
-            ],
-            "scripts": [
-              "node_modules/marked/marked.min.js"
-            ]
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.scss", "src/theme.scss"],
+            "scripts": ["node_modules/marked/marked.min.js"]
           }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
-            ]
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
         },
         "deploy": {
@@ -205,13 +186,39 @@
           }
         }
       }
+    },
+    "ng-dynamic-component": {
+      "projectType": "library",
+      "root": "projects/ng-dynamic-component",
+      "sourceRoot": "projects/ng-dynamic-component/src",
+      "prefix": "ndc",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/ng-dynamic-component/tsconfig.lib.json",
+            "project": "projects/ng-dynamic-component/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-builders/jest:run",
+          "options": {}
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/ng-dynamic-component/**/*.ts",
+              "projects/ng-dynamic-component/**/*.html"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {
     "packageManager": "npm",
     "analytics": "43f0cc4d-52e0-4bb5-a18d-b0bb569a75d1",
-    "schematicCollections": [
-      "@angular-eslint/schematics"
-    ]
+    "schematicCollections": ["@angular-eslint/schematics"]
   }
 }

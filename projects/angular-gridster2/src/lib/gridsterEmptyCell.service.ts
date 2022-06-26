@@ -365,7 +365,7 @@ export class GridsterEmptyCell {
       !this.gridster.$options.enableOccupiedCellDrop &&
       this.gridster.checkCollision(item)
     ) {
-      return;
+      return null;
     }
     return item;
   }
