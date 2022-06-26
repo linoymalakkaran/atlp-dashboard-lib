@@ -1,5 +1,24 @@
-<div class="card"></div>
-<div class="inheritSize" *ngIf="dashboard?.length > 0">
+<div class="card page-wrap">
+  <div class="card-header p-1" *ngIf="activeLayout">
+      <div class="row">
+
+        <div class="col-6"> 
+          <strong class="d-flex" style="color: #fff; font-size: large; margin: 5px 20px;">{{activeLayout?.layoutName}}</strong>
+        </div>
+        
+
+        <div class="col-6 d-flex justify-content-end">
+          <button class="btn btn-secondary pull-right" >
+            Edit
+          </button>
+         
+        </div>
+      </div>
+  </div>
+  </div>
+  
+  
+  <div class="inheritSize" *ngIf="dashboard?.length > 0">
   <gridster [options]="options">
     <gridster-item [item]="item" *ngFor="let item of dashboard">
       <app-dashboard-widget

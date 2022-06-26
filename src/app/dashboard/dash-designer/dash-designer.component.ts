@@ -68,7 +68,7 @@ export class DashDesignerComponent implements OnInit {
   }
 
   addItem(): void {
-    this.dashboard.push({ x: 0, y: 0, cols: 1, rows: 1 });
+    this.dashboard.push({ x: 0, y: 0, cols: 1, rows: 1, hasContent: true});
   }
 
   saveLayout() {
