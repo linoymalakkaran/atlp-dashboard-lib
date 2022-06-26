@@ -1,8 +1,12 @@
 <div class="card page-wrap">
-  <div class="card-header p-2">
+  <div class="card-header p-1">
     <form [formGroup]="form">
       <div class="row">
-        <div class="row col-6">
+
+        <div class="col-6"> 
+          <strong class="d-flex" style="color: #fff; font-size: large; margin:5px 20px;">Create New Layout</strong>
+        </div>
+        <div class="row col-4">
           <div class="col-6">
             <input
               autocomplete="off"
@@ -22,7 +26,7 @@
           </div>
         </div>
 
-        <div class="col-6 d-flex justify-content-end">
+        <div class="col-2 d-flex justify-content-end">
           <button class="btn btn-secondary pull-right" (click)="addItem()" >
             <mat-icon>add</mat-icon>
           </button>

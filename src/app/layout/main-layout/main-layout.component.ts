@@ -48,6 +48,7 @@ export class MainLayoutComponent implements OnInit {
   }
 
   loadDashboard(item): void {
+    this.toggleSidebar(null);
     this.route.navigate(['dashboard/dashhome']);
     setTimeout(() => {
       localStorage.setItem('activeLayout', item);
