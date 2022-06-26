@@ -40,6 +40,7 @@ import { SwapComponent } from './sections/swap/swap.component';
 import { MultiLayerComponent } from './sections/multiLayer/multi-layer.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { TrackByItemComponent } from './sections/trackBy/trackByItem.component';
+import { AtlpDashboardLibComponent } from 'projects/atlp-dashboard-lib/src/public-api';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -61,6 +62,7 @@ const appRoutes: Routes = [
   { path: 'multiLayer', component: MultiLayerComponent },
   { path: 'misc', component: MiscComponent },
   { path: 'rtl', component: RtlComponent },
+  { path: 'dashboard', component: AtlpDashboardLibComponent },
   { path: '**', redirectTo: '' }
 ];
 
