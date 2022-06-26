@@ -120,9 +120,7 @@ Option 2 (with text selection):
 
 ```html
 <gridster-item>
-  <div class="gridster-item-content">
-    Some content to select and click without dragging the widget
-  </div>
+  <div class="gridster-item-content">Drop your Widget Here</div>
   <div class="item-buttons">
     <button md-icon-button md-raised-button class="drag-handler">
       <md-icon>open_with</md-icon>

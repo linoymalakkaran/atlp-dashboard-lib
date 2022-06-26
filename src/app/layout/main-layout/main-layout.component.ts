@@ -25,37 +25,22 @@ export class MainLayoutComponent implements OnInit {
     this._icon.registerIcons(this.icons);
   }
   ngOnInit(): void {
-    const item = {
-      layoutName: 'Layout One',
-      layoutId: '1',
-      options: null,
-      gridItemList: [
-        { cols: 2, rows: 1, y: 0, x: 0 },
-        { cols: 2, rows: 2, y: 0, x: 2, hasContent: true },
-        { cols: 1, rows: 1, y: 0, x: 4 },
-        { cols: 1, rows: 1, y: 2, x: 5 },
-        { cols: 1, rows: 1, y: 1, x: 0 },
-        { cols: 1, rows: 1, y: 1, x: 0 }
-      ]
-    };
-
+    const gridItemList = [
+      { cols: 2, rows: 1, y: 0, x: 0 },
+      { cols: 2, rows: 2, y: 0, x: 2, hasContent: true },
+      { cols: 1, rows: 1, y: 0, x: 4 },
+      { cols: 1, rows: 1, y: 2, x: 5 },
+      { cols: 1, rows: 1, y: 1, x: 0 },
+      { cols: 1, rows: 1, y: 1, x: 0 }
+    ];
+    const item = new createGridInstance();
+    item.setValue(false, 'Layout One', '1', gridItemList, null);
     this.prepareDashList(item);
 
-    const itemTwo = {
-      layoutName: 'Layout Two',
-      layoutId: '2',
-      options: null,
-      gridItemList: [
-        { cols: 2, rows: 1, y: 0, x: 0 },
-        { cols: 2, rows: 2, y: 0, x: 2, hasContent: true },
-        { cols: 1, rows: 1, y: 0, x: 4 },
-        { cols: 1, rows: 1, y: 2, x: 5 },
-        { cols: 1, rows: 1, y: 1, x: 0 },
-        { cols: 1, rows: 1, y: 1, x: 0 }
-      ]
-    };
-
-    this.prepareDashList(itemTwo);
+    this.dashService.saveByEvent.subscribe(griditem => {
+      this.prepareDashList(griditem);
+      this.ref.detectChanges();
+    });
   }
 
   prepareDashList(item) {
@@ -65,8 +50,6 @@ export class MainLayoutComponent implements OnInit {
   loadDashboard(item): void {
     this.route.navigate(['dashboard/dashhome']);
     setTimeout(() => {
-      let gridObj = new createGridInstance();
-      item.options = gridObj.options;
       localStorage.setItem('activeLayout', item);
       this.dashService.sendDataByEvent(item);
     }, 1000);

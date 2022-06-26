@@ -1,1 +1,74 @@
-<p>dash-designer works!</p>
+<div class="card page-wrap">
+  <div class="card-header p-2">
+    <form [formGroup]="form">
+      <div class="row">
+        <div class="row col-6">
+          <div class="col-6">
+            <input
+              autocomplete="off"
+              placeholder="layout Name"
+              formControlName="layoutname"
+              class="form-control"
+            />
+          </div>
+
+          <div class="col-6">
+            <input
+              autocomplete="off"
+              placeholder="layout Id"
+              formControlName="layoutid"
+              class="form-control"
+            />
+          </div>
+        </div>
+
+        <div class="col-6 d-flex justify-content-end">
+          <button class="btn btn-primary pull-right" (click)="saveLayout()">
+            Save Layout
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="inheritSize" *ngIf="dashboard?.length > 0">
+  <gridster [options]="options">
+    <gridster-item [item]="item" *ngFor="let item of dashboard">
+      <div class="button-holder">
+        <div class="gridster-item-content" *ngIf="item?.hasContent">
+          <div class="stuff p-5">
+            <span>Drag Your Content Here !!</span>
+          </div>
+        </div>
+        <div class="item-buttons" *ngIf="item.hasContent">
+          <button
+            mat-icon-button
+            mat-raised-button
+            class="drag-handler btn-primary btn"
+          >
+            <mat-icon>open_with</mat-icon>
+          </button>
+          &nbsp;
+          <button
+            mat-icon-button
+            mat-raised-button
+            class="remove-button btn-warning btn"
+            (mousedown)="removeItem($event, item)"
+            (touchstart)="removeItem($event, item)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+        <label *ngIf="!item.hasContent">{{ item.label }}</label>
+        <button
+          mat-mini-fab
+          *ngIf="!item.hasContent"
+          (mousedown)="removeItem($event, item)"
+          (touchstart)="removeItem($event, item)"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </gridster-item>
+  </gridster>
+</div>

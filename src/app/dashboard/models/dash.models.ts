@@ -72,7 +72,34 @@ export class createGridInstance {
     scrollToNewItems: false
   };
 
-  dashboardItems = [];
+  layoutName = '';
+  layoutId = null;
+
+  dashboardItems = [
+    { cols: 2, rows: 1, y: 0, x: 0, hasContent: true },
+    { cols: 2, rows: 2, y: 0, x: 2, hasContent: true },
+    { cols: 1, rows: 1, y: 0, x: 4, hasContent: true },
+    { cols: 1, rows: 1, y: 2, x: 5, hasContent: true },
+    { cols: 1, rows: 1, y: 1, x: 0, hasContent: true },
+    { cols: 1, rows: 1, y: 1, x: 0, hasContent: true }
+  ];
+
+  setValue(editMode = true, name, id, items, options) {
+    this.layoutName = name;
+    this.layoutId = id;
+    if (items && items.length > 0) {
+      this.dashboardItems = items;
+    }
+    if (!editMode) {
+      this.options.draggable = {
+        enabled: false
+      };
+      this.options.resizable = {
+        enabled: false
+      };
+      this.options.displayGrid = DisplayGrid.None;
+    }
+  }
 
   changedOptions(): void {
     if (this.options.api && this.options.api.optionsChanged) {

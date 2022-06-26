@@ -38,7 +38,7 @@ export class DashHomeComponent implements OnInit {
   ngOnInit(): void {
     this.dashService.dataByEvent.subscribe(griditem => {
       this.options = griditem.options;
-      this.dashboard = griditem.gridItemList;
+      this.dashboard = griditem.dashboardItems;
       this.activeLayout = griditem;
       this.ref.detectChanges();
     });

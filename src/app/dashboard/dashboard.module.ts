@@ -8,15 +8,25 @@ import { DashService } from './services/dash.service';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { GridsterModule } from 'angular-gridster2';
+import { DashboardWidgetComponent } from './dashboard-widget/dashboard-widget.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [DashHomeComponent, DashDesignerComponent],
+  declarations: [
+    DashHomeComponent,
+    DashDesignerComponent,
+    DashboardWidgetComponent
+  ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     DashboardRoutingModule,
     MatIconModule,
     GridsterModule,
-    MatMenuModule
+    MatMenuModule,
+    MatFormFieldModule
   ]
 })
 export class DashboardModule {}

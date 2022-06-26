@@ -7,6 +7,7 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 })
 export class DashService {
   dataByEvent: EventEmitter<any> = new EventEmitter<any>();
+  saveByEvent: EventEmitter<any> = new EventEmitter<any>();
 
   private griditem: BehaviorSubject<string> = new BehaviorSubject<any>(
     'Initial Value'
@@ -21,5 +22,9 @@ export class DashService {
 
   sendDataByEvent(data: any) {
     this.dataByEvent.emit(data);
+  }
+
+  saveLayoutByEvent(data: any) {
+    this.saveByEvent.emit(data);
   }
 }

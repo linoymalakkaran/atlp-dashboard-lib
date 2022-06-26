@@ -2,7 +2,14 @@
 <div class="inheritSize" *ngIf="dashboard?.length > 0">
   <gridster [options]="options">
     <gridster-item [item]="item" *ngFor="let item of dashboard">
-      <div class="button-holder">
+      <app-dashboard-widget
+        [sourceData]="item"
+        [widgetType]="'chart'"
+        [widgetOptions]="{ filter: true, excel: true, pdf: true }"
+      >
+      </app-dashboard-widget>
+
+      <!-- <div class="button-holder">
         <div class="gridster-item-content" *ngIf="item?.hasContent">
           <div class="stuff">
             <span
@@ -35,7 +42,7 @@
         >
           <mat-icon>delete</mat-icon>
         </button>
-      </div>
+      </div> -->
     </gridster-item>
   </gridster>
 </div>
