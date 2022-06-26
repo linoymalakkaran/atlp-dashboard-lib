@@ -41,9 +41,16 @@ import { MultiLayerComponent } from './sections/multiLayer/multi-layer.component
 import { MatMenuModule } from '@angular/material/menu';
 import { TrackByItemComponent } from './sections/trackBy/trackByItem.component';
 import { AtlpDashboardLibComponent } from 'projects/atlp-dashboard-lib/src/public-api';
+import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
+import { MainFooterComponent } from './layout/main-footer/main-footer.component';
+import { MainHeaderComponent } from './layout/main-header/main-header.component';
+import { IconsService } from './services/icons.service';
+import { DashService } from './dashboard/services/dash.service';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
   { path: 'api', component: ApiComponent },
   { path: 'compact', component: CompactComponent },
   { path: 'displayGrid', component: DisplayGridComponent },
@@ -62,8 +69,19 @@ const appRoutes: Routes = [
   { path: 'multiLayer', component: MultiLayerComponent },
   { path: 'misc', component: MiscComponent },
   { path: 'rtl', component: RtlComponent },
-  { path: 'dashboard', component: AtlpDashboardLibComponent },
-  { path: '**', redirectTo: '' }
+  // { path: 'dashboard', component: AtlpDashboardLibComponent },
+  {
+    path: '',
+    component: MainLayoutComponent,
+
+    children: [
+      {
+        path: 'dashboard',
+        loadChildren: () =>
+          import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+      }
+    ]
+  }
 ];
 
 @NgModule({
@@ -92,7 +110,10 @@ const appRoutes: Routes = [
     TrackByComponent,
     TrackByItemComponent,
     MiscComponent,
-    RtlComponent
+    RtlComponent,
+    MainLayoutComponent,
+    MainFooterComponent,
+    MainHeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -109,6 +130,7 @@ const appRoutes: Routes = [
     MatListModule,
     GridsterModule,
     MatMenuModule,
+    MatExpansionModule,
     MarkdownModule.forRoot({
       loader: HttpClient,
       markedOptions: {
@@ -117,7 +139,8 @@ const appRoutes: Routes = [
       }
     })
   ],
-  providers: [],
+
+  providers: [IconsService, DashService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
