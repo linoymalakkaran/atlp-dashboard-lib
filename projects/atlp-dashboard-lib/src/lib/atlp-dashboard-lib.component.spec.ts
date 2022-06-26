@@ -8,9 +8,8 @@ describe('AtlpDashboardLibComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AtlpDashboardLibComponent ]
-    })
-    .compileComponents();
+      declarations: [AtlpDashboardLibComponent]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(AtlpDashboardLibComponent);
     component = fixture.componentInstance;

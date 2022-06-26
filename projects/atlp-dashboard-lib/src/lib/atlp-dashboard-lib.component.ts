@@ -1,20 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'lib-atlp-dashboard-lib',
-  template: `
-    <p>
-      atlp-dashboard-lib works!
-    </p>
-  `,
-  styles: [
-  ]
+  template: ` <p>atlp-dashboard-lib works!</p> `,
+  styles: []
 })
-export class AtlpDashboardLibComponent implements OnInit {
+export class AtlpDashboardLibComponent  {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }
