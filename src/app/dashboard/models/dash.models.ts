@@ -76,12 +76,7 @@ export class createGridInstance {
   layoutId = null;
 
   dashboardItems = [
-    { cols: 2, rows: 1, y: 0, x: 0, hasContent: true },
-    { cols: 2, rows: 2, y: 0, x: 2, hasContent: true },
-    { cols: 1, rows: 1, y: 0, x: 4, hasContent: true },
-    { cols: 1, rows: 1, y: 2, x: 5, hasContent: true },
-    { cols: 1, rows: 1, y: 1, x: 0, hasContent: true },
-    { cols: 1, rows: 1, y: 1, x: 0, hasContent: true }
+    
   ];
 
   setValue(editMode = true, name, id, items, options) {
