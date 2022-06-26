@@ -12,7 +12,7 @@ import { IconsService } from 'src/app/services/icons.service';
 })
 export class MainLayoutComponent implements OnInit {
   isCollapsed = false;
-  panelOpenState = false;
+  panelOpenState = true;
 
   savedDashLayout: any = [];
 
@@ -39,6 +39,8 @@ export class MainLayoutComponent implements OnInit {
 
     this.dashService.saveByEvent.subscribe(griditem => {
       this.prepareDashList(griditem);
+      this.toggleSidebar(null);
+      this.panelOpenState = true
       this.ref.detectChanges();
     });
   }
