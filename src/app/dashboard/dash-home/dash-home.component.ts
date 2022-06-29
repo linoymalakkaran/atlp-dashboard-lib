@@ -11,7 +11,10 @@ import {
   PushDirections,
   Resizable
 } from 'angular-gridster2';
-import { DashService } from '../services/dash.service';
+import { WidgetsBarChartComponent } from 'src/app/widgets/bar-chart/bar-chart.component';
+import { NotificationComponent } from 'src/app/widgets/notification/notification.component';
+import { WidgetsPieChartComponent } from 'src/app/widgets/pie-chart/pie-chart.component';
+import { DashBoardService } from '../services/dash.service';
 
 interface Safe extends GridsterConfig {
   draggable: Draggable;
@@ -22,26 +25,48 @@ interface Safe extends GridsterConfig {
 @Component({
   selector: 'app-dash-home',
   templateUrl: './dash-home.component.html',
-  styleUrls: ['./dash-home.component.css']
+  styleUrls: ['./dash-home.component.scss']
 })
 export class DashHomeComponent implements OnInit {
   savedDashLayout = [];
   options: Safe;
   dashboard: any = [];
   activeLayout: any = null;
+  widgetOptions: any = null;
 
   constructor(
-    private dashService: DashService,
+    private dashService: DashBoardService,
     private ref: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
+    this.widgetOptions = {
+      filter: true,
+      report: { excel: true, pdf: true },
+      widgetTypes: ['bar-chart', 'notification', 'pie-chart']
+    };
     this.dashService.dataByEvent.subscribe(griditem => {
       this.options = griditem.options;
       this.dashboard = griditem.dashboardItems;
       this.activeLayout = griditem;
       this.ref.detectChanges();
     });
+  }
+
+  widgetSelectFn(widgetName): any {
+    switch (widgetName) {
+      case 'bar-chart': {
+        return WidgetsBarChartComponent;
+      }
+      case 'notification': {
+        return NotificationComponent;
+      }
+      case 'pie-chart': {
+        return WidgetsPieChartComponent;
+      }
+      default:
+        return null;
+    }
   }
 
   changedOptions(): void {

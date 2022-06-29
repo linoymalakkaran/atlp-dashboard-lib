@@ -4,20 +4,15 @@ import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashHomeComponent } from './dash-home/dash-home.component';
 import { DashDesignerComponent } from './dash-designer/dash-designer.component';
-import { DashService } from './services/dash.service';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { GridsterModule } from 'angular-gridster2';
-import { DashboardWidgetComponent } from './dashboard-widget/dashboard-widget.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AtlpDashboardLibModule } from 'projects/atlp-dashboard-lib/src/public-api';
 
 @NgModule({
-  declarations: [
-    DashHomeComponent,
-    DashDesignerComponent,
-    DashboardWidgetComponent
-  ],
+  declarations: [DashHomeComponent, DashDesignerComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -26,7 +21,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     GridsterModule,
     MatMenuModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    AtlpDashboardLibModule
   ]
 })
 export class DashboardModule {}

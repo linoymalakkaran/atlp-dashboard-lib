@@ -45,8 +45,10 @@ import { MainLayoutComponent } from './layout/main-layout/main-layout.component'
 import { MainFooterComponent } from './layout/main-footer/main-footer.component';
 import { MainHeaderComponent } from './layout/main-header/main-header.component';
 import { IconsService } from './services/icons.service';
-import { DashService } from './dashboard/services/dash.service';
+import { DashBoardService } from './dashboard/services/dash.service';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { NotificationComponent } from './widgets/notification/notification.component';
+// import { ChartModule } from './widgets/charts/chart.module';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -113,7 +115,8 @@ const appRoutes: Routes = [
     RtlComponent,
     MainLayoutComponent,
     MainFooterComponent,
-    MainHeaderComponent
+    MainHeaderComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
@@ -131,6 +134,7 @@ const appRoutes: Routes = [
     GridsterModule,
     MatMenuModule,
     MatExpansionModule,
+    // ChartModule,
     MarkdownModule.forRoot({
       loader: HttpClient,
       markedOptions: {
@@ -140,7 +144,7 @@ const appRoutes: Routes = [
     })
   ],
 
-  providers: [IconsService, DashService],
+  providers: [IconsService, DashBoardService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -6,6 +6,9 @@
     "gridster-app": {
       "projectType": "application",
       "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
         "@schematics/angular:application": {
           "strict": true
         }
@@ -17,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/demo",
+            "outputPath": "dist/atlp-dashboard",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -28,7 +31,7 @@
           },
           "configurations": {
             "production": {
-              "baseHref": "/angular-gridster2/",
+              "baseHref": "/atlp-dashboard/",
               "budgets": [
                 {
                   "type": "initial",
@@ -108,6 +111,14 @@
     },
     "angular-gridster2": {
       "projectType": "library",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
       "root": "projects/angular-gridster2",
       "sourceRoot": "projects/angular-gridster2/src",
       "prefix": "gridster",
@@ -149,6 +160,14 @@
     },
     "atlp-dashboard-lib": {
       "projectType": "library",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
       "root": "projects/atlp-dashboard-lib",
       "sourceRoot": "projects/atlp-dashboard-lib/src",
       "prefix": "lib",
@@ -189,6 +208,14 @@
     },
     "ng-dynamic-component": {
       "projectType": "library",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
       "root": "projects/ng-dynamic-component",
       "sourceRoot": "projects/ng-dynamic-component/src",
       "prefix": "ndc",

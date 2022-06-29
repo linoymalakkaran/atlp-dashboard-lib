@@ -75,9 +75,7 @@ export class createGridInstance {
   layoutName = '';
   layoutId = null;
 
-  dashboardItems = [
-    
-  ];
+  dashboardItems = [];
 
   setValue(editMode = true, name, id, items, options) {
     this.layoutName = name;

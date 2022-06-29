@@ -28,7 +28,12 @@
         "projects/angular-gridster2/src/public_api.ts"
       ],
       "atlp-dashboard-lib": [
-        "dist/atlp-dashboard-lib"
+        "dist/atlp-dashboard-lib",
+        "projects/atlp-dashboard-lib/src/public_api.ts"
+      ],
+      "ng-dynamic-component": [
+        "dist/ng-dynamic-component",
+        "projects/ng-dynamic-component/src/public_api.ts"
       ]
     }
   },

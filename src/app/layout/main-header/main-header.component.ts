@@ -6,7 +6,7 @@ import { IconsService } from 'src/app/services/icons.service';
   templateUrl: './main-header.component.html',
   styleUrls: ['./main-header.component.scss']
 })
-export class MainHeaderComponent implements OnInit {
+export class MainHeaderComponent {
   isCollapsed = true;
   @Output() toggleSidebar = new EventEmitter<any>();
 
@@ -14,28 +14,12 @@ export class MainHeaderComponent implements OnInit {
   constructor(private _icon: IconsService) {
     this._icon.registerIcons(this.icons);
   }
-  ngOnInit(): void {}
 
   opensidebar() {
     this.toggleSidebar.emit(this.isCollapsed);
   }
 
   private get icons(): Array<string> {
-    return [
-      'pdf-icon',
-      'jpg-icon',
-      'pdf-file-icon',
-      'png-icon',
-      'file-remove',
-      'folder',
-      'view-files',
-      'icon-calender',
-      'icon-profile',
-      'management-icon',
-      'folder-1439',
-      'skill-8805',
-      'burger-menu',
-      'icon-dashboard'
-    ];
+    return ['burger-menu'];
   }
 }

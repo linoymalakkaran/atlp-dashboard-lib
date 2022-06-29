@@ -11,8 +11,8 @@ import {
   Resizable,
   PushDirections
 } from 'angular-gridster2';
-import { createGridInstance } from '../models/dash.models';
-import { DashService } from '../services/dash.service';
+import { createGridInstance } from '../models/dashboard.models';
+import { DashBoardService } from '../services/dash.service';
 
 interface Safe extends GridsterConfig {
   draggable: Draggable;
@@ -23,7 +23,7 @@ interface Safe extends GridsterConfig {
 @Component({
   selector: 'app-dash-designer',
   templateUrl: './dash-designer.component.html',
-  styleUrls: ['./dash-designer.component.css']
+  styleUrls: ['./dash-designer.component.scss']
 })
 export class DashDesignerComponent implements OnInit {
   savedDashLayout = [];
@@ -35,7 +35,7 @@ export class DashDesignerComponent implements OnInit {
   form: FormGroup;
 
   constructor(
-    private dashService: DashService,
+    private dashService: DashBoardService,
     private fb: FormBuilder,
     private ref: ChangeDetectorRef
   ) {}
@@ -68,7 +68,7 @@ export class DashDesignerComponent implements OnInit {
   }
 
   addItem(): void {
-    this.dashboard.push({ x: 0, y: 0, cols: 1, rows: 1, hasContent: true});
+    this.dashboard.push({ x: 0, y: 0, cols: 1, rows: 1, hasContent: true });
   }
 
   saveLayout() {

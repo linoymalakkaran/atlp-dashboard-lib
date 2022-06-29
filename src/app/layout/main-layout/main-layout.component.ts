@@ -1,8 +1,8 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
-import { createGridInstance } from 'src/app/dashboard/models/dash.models';
-import { DashService } from 'src/app/dashboard/services/dash.service';
+import { createGridInstance } from 'src/app/dashboard/models/dashboard.models';
+import { DashBoardService } from 'src/app/dashboard/services/dash.service';
 import { IconsService } from 'src/app/services/icons.service';
 
 @Component({
@@ -18,7 +18,7 @@ export class MainLayoutComponent implements OnInit {
 
   constructor(
     private _icon: IconsService,
-    private dashService: DashService,
+    private dashService: DashBoardService,
     private ref: ChangeDetectorRef,
     private route: Router
   ) {
@@ -40,7 +40,7 @@ export class MainLayoutComponent implements OnInit {
     this.dashService.saveByEvent.subscribe(griditem => {
       this.prepareDashList(griditem);
       this.toggleSidebar(null);
-      this.panelOpenState = true
+      this.panelOpenState = true;
       this.ref.detectChanges();
     });
   }
@@ -63,21 +63,6 @@ export class MainLayoutComponent implements OnInit {
   }
 
   private get icons(): Array<string> {
-    return [
-      'pdf-icon',
-      'jpg-icon',
-      'pdf-file-icon',
-      'png-icon',
-      'file-remove',
-      'folder',
-      'view-files',
-      'icon-calender',
-      'icon-profile',
-      'management-icon',
-      'folder-1439',
-      'skill-8805',
-      'burger-menu',
-      'icon-dashboard'
-    ];
+    return ['icon-dashboard'];
   }
 }

@@ -5,7 +5,7 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class DashService {
+export class DashBoardService {
   dataByEvent: EventEmitter<any> = new EventEmitter<any>();
   saveByEvent: EventEmitter<any> = new EventEmitter<any>();
 
