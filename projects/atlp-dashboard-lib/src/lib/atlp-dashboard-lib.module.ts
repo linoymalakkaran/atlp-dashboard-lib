@@ -23,10 +23,6 @@ import { AtlpDashboardWidgetComponent } from './components/atlp-dashboard-widget
     MatFormFieldModule,
     DynamicModule
   ],
-  exports: [
-    AtlpDashboardLibComponent,
-    AtlpDashboardLibComponent,
-    AtlpDashboardWidgetComponent
-  ]
+  exports: [AtlpDashboardLibComponent, AtlpDashboardWidgetComponent]
 })
 export class AtlpDashboardLibModule {}
