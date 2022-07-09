@@ -40,15 +40,12 @@ import { SwapComponent } from './sections/swap/swap.component';
 import { MultiLayerComponent } from './sections/multiLayer/multi-layer.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { TrackByItemComponent } from './sections/trackBy/trackByItem.component';
-import { AtlpDashboardLibComponent } from 'projects/atlp-dashboard-lib/src/public-api';
-import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
-import { MainFooterComponent } from './layout/main-footer/main-footer.component';
-import { MainHeaderComponent } from './layout/main-header/main-header.component';
 import { IconsService } from './services/icons.service';
-import { DashBoardService } from './dashboard/services/dash.service';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { NotificationComponent } from './widgets/notification/notification.component';
-// import { ChartModule } from './widgets/charts/chart.module';
+import { MainLayoutComponent } from './dashboard/components/layout/main-layout/main-layout.component';
+import { MainFooterComponent } from './dashboard/components/layout/main-footer/main-footer.component';
+import { MainHeaderComponent } from './dashboard/components/layout/main-header/main-header.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -75,7 +72,6 @@ const appRoutes: Routes = [
   {
     path: '',
     component: MainLayoutComponent,
-
     children: [
       {
         path: 'dashboard',
@@ -144,7 +140,7 @@ const appRoutes: Routes = [
     })
   ],
 
-  providers: [IconsService, DashBoardService],
+  providers: [IconsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -73,7 +73,19 @@ export class createGridInstance {
   };
 
   layoutName = '';
+  layoutDescription = '';
   layoutId = null;
+  properties = {};
+  access = [
+    {
+      profile: 'Shipping agent',
+      role: null
+    },
+    {
+      profile: 'Clearing agent',
+      role: 'operator'
+    }
+  ];
 
   dashboardItems = [];
 

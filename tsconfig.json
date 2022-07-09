@@ -31,6 +31,9 @@
         "dist/atlp-dashboard-lib",
         "projects/atlp-dashboard-lib/src/public_api.ts"
       ],
+      "dashboard-designer": [
+        "dist/dashboard-designer"
+      ],
       "ng-dynamic-component": [
         "dist/ng-dynamic-component",
         "projects/ng-dynamic-component/src/public_api.ts"
