@@ -5,8 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { GridsterModule } from 'angular-gridster2';
-import { DynamicModule } from 'projects/ng-dynamic-component/src/public-api';
-import { DashboardRoutingModule } from 'src/app/dashboard/dashboard-routing.module';
+import { DynamicModule } from 'ng-dynamic-component';
 import { AtlpDashboardLibComponent } from './components/atlp-dashboard-lib/atlp-dashboard-lib.component';
 import { AtlpDashboardWidgetComponent } from './components/atlp-dashboard-widget/atlp-dashboard-widget.component';
 
@@ -16,7 +15,6 @@ import { AtlpDashboardWidgetComponent } from './components/atlp-dashboard-widget
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    DashboardRoutingModule,
     MatIconModule,
     GridsterModule,
     MatMenuModule,

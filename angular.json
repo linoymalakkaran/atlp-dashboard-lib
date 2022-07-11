@@ -241,10 +241,20 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
+          "configurations": {
+            "production": {
+              "project": "projects/ng-dynamic-component/ng-package.json",
+              "tsConfig": "projects/ng-dynamic-component/tsconfig.lib.json"
+            },
+            "development": {
+              "tsConfig": "projects/ng-dynamic-component/tsconfig.lib.json"
+            }
+          },
           "options": {
             "tsConfig": "projects/ng-dynamic-component/tsconfig.lib.json",
             "project": "projects/ng-dynamic-component/ng-package.json"
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "test": {
           "builder": "@angular-builders/jest:run",
