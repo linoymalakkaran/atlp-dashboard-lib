@@ -21,6 +21,6 @@ import { DashHomeComponent } from './components/dashboard-home/dashboard-home.co
     MatFormFieldModule,
     AtlpDashboardLibModule
   ],
-  exports: []
+  exports: [DashHomeComponent, DashDesignerComponent]
 })
 export class DashboardDesignerModule {}

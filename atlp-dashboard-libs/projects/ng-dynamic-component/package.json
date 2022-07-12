@@ -1,21 +1,10 @@
 {
   "name": "ng-dynamic-component",
-  "version": "0.0.0-semantically-released",
+  "version": "1.0.0",
   "license": "MIT",
   "repository": {
-    "type": "git",
-    "url": "https://github.com/gund/ng-dynamic-component.git"
+    "type": "git"
   },
-  "keywords": [
-    "angular",
-    "angular2",
-    "ng",
-    "dynamic",
-    "component",
-    "input",
-    "output",
-    "life-cycle"
-  ],
   "peerDependencies": {
     "@angular/common": "^14.0.0",
     "@angular/core": "^14.0.0",

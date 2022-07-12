@@ -18,11 +18,9 @@
     "strictNullChecks": false,
     "target": "es2020",
     "module": "es2020",
-    "lib": [
-      "es2020",
-      "dom"
-    ],
+    "lib": ["es2020", "dom"],
     "paths": {
+      "@angular/*": ["./node_modules/@angular/*"],
       "angular-gridster2": [
         "dist/angular-gridster2",
         "projects/angular-gridster2/src/public_api.ts"
@@ -31,9 +29,7 @@
         "dist/atlp-dashboard-lib",
         "projects/atlp-dashboard-lib/src/public_api.ts"
       ],
-      "dashboard-designer": [
-        "dist/dashboard-designer"
-      ],
+      "dashboard-designer": ["dist/dashboard-designer"],
       "ng-dynamic-component": [
         "dist/ng-dynamic-component",
         "projects/ng-dynamic-component/src/public_api.ts"

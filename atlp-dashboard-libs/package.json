@@ -30,10 +30,12 @@
     "package_atlp_dashboard_lib": "npm run build_lib_atlp_dashboard_lib && npm run npm_pack_atlp_dashboard_lib",
     "build_lib_ng_dynamic_component": "ng build ng-dynamic-component --configuration production",
     "npm_pack_ng_dynamic_component": "cd dist/ng-dynamic-component && npm pack",
-    "package_ng_dynamic_component": "npm run build_lib_ng_dynamic_component && npm run npm_pack_ng_dynamic_component"
+    "package_ng_dynamic_component": "npm run build_lib_ng_dynamic_component && npm run npm_pack_ng_dynamic_component",
+    "package:all": "npm run package_angular_gridster2 && npm run package_ng_dynamic_component && npm run package_atlp_dashboard_lib && npm run package_dashboard_designer"
   },
   "description": "atlp dashboard",
   "dependencies": {
+    "@angular-architects/module-federation": "^14.3.9",
     "@angular/animations": "14.0.0",
     "@angular/cdk": "14.0.0",
     "@angular/common": "14.0.0",
@@ -47,7 +49,7 @@
     "angular-gridster2": "file:dist/angular-gridster2/angular-gridster2-14.0.1.tgz",
     "atlp-dashboard-lib": "file:dist/atlp-dashboard-lib/atlp-dashboard-lib-0.0.1.tgz",
     "bootstrap": "^5.1.3",
-    "ng-dynamic-component": "file:dist/ng-dynamic-component/ng-dynamic-component-0.0.0-semantically-released.tgz",
+    "ng-dynamic-component": "file:dist/ng-dynamic-component/ng-dynamic-component-1.0.0.tgz",
     "ngx-markdown": "13.1.0",
     "rxjs": "7.5.5",
     "tslib": "2.4.0",

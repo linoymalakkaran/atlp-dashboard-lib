@@ -16,6 +16,10 @@
             <mat-icon>add_location</mat-icon>
             <span>{{ widgetName }}</span>
           </button>
+          <!-- <button mat-menu-item (click)="loadWidget()">
+            <mat-icon>add_location</mat-icon>
+            <span>{{ widgetName }}</span>
+          </button> -->
         </ng-container>
       </mat-menu>
     </div>
@@ -24,5 +28,6 @@
     <ng-container *ngIf="widgetComponent">
       <ndc-dynamic [ndcDynamicComponent]="widgetComponent"></ndc-dynamic>
     </ng-container>
+    <!-- <ng-container #vc></ng-container> -->
   </div>
 </div>
