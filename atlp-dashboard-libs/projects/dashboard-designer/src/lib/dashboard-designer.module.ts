@@ -5,12 +5,17 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { GridsterModule } from 'angular-gridster2';
-import { AtlpDashboardLibModule } from 'atlp-dashboard-lib';
-import { DashDesignerComponent } from './components/dashboard-designer/dashboard-designer.component';
-import { DashHomeComponent } from './components/dashboard-home/dashboard-home.component';
+import { DynamicModule } from 'projects/ng-dynamic-component/src/public-api';
+import { DashboardDesignerComponent } from './components/dashboard-designer/dashboard-designer.component';
+import { DashboardWidgetDesignerComponent } from './components/dashboard-widget-designer/dashboard-widget-designer.component';
+import { DashboardWidgetComponent } from './components/dashboard-widget-designer/dashboard-widget/dashboard-widget.component';
 
 @NgModule({
-  declarations: [DashHomeComponent, DashDesignerComponent],
+  declarations: [
+    DashboardWidgetDesignerComponent,
+    DashboardWidgetComponent,
+    DashboardDesignerComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -19,8 +24,13 @@ import { DashHomeComponent } from './components/dashboard-home/dashboard-home.co
     GridsterModule,
     MatMenuModule,
     MatFormFieldModule,
-    AtlpDashboardLibModule
+    DynamicModule,
   ],
-  exports: [DashHomeComponent, DashDesignerComponent]
+  exports: [
+    DashboardWidgetDesignerComponent,
+    DashboardWidgetComponent,
+    DashboardDesignerComponent,
+    DynamicModule
+  ]
 })
 export class DashboardDesignerModule {}

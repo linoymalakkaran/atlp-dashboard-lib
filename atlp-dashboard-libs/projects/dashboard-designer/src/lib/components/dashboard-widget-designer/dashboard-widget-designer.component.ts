@@ -14,11 +14,11 @@ interface Safe extends GridsterConfig {
 }
 
 @Component({
-  selector: 'ngx-dashboard-home',
-  templateUrl: './dashboard-home.component.html',
-  styleUrls: ['./dashboard-home.component.scss']
+  selector: 'ngx-dashboard-widget-designer',
+  templateUrl: './dashboard-widget-designer.component.html',
+  styleUrls: ['./dashboard-widget-designer.component.scss']
 })
-export class DashHomeComponent implements OnInit {
+export class DashboardWidgetDesignerComponent implements OnInit {
   savedDashLayout = [];
   options: Safe;
   dashboard: any = [];

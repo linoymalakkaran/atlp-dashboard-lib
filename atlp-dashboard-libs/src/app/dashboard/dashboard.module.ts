@@ -7,7 +7,6 @@ import { MatMenuModule } from '@angular/material/menu';
 import { GridsterModule } from 'angular-gridster2';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AtlpDashboardLibModule } from 'projects/atlp-dashboard-lib/src/public-api';
 import { DashDesignerComponent } from './components/dash-designer/dash-designer.component';
 import { DashHomeComponent } from './components/dash-home/dash-home.component';
 import { DashboardDesignerModule } from 'projects/dashboard-designer/src/public-api';
@@ -23,7 +22,6 @@ import { DashboardDesignerModule } from 'projects/dashboard-designer/src/public-
     GridsterModule,
     MatMenuModule,
     MatFormFieldModule,
-    AtlpDashboardLibModule,
     DashboardDesignerModule
   ]
 })

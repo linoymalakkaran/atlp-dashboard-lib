@@ -21,7 +21,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "preserveSymlinks": true,
-            "outputPath": "dist/atlp-dashboard",
+            "outputPath": "dist/gridster-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -40,7 +40,7 @@
           },
           "configurations": {
             "production": {
-              "baseHref": "/atlp-dashboard/",
+              "baseHref": "/gridster-app/",
               "budgets": [
                 {
                   "type": "initial",
@@ -178,54 +178,6 @@
         }
       }
     },
-    "atlp-dashboard-lib": {
-      "projectType": "library",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        },
-        "@schematics/angular:application": {
-          "strict": true
-        }
-      },
-      "root": "projects/atlp-dashboard-lib",
-      "sourceRoot": "projects/atlp-dashboard-lib/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/atlp-dashboard-lib/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/atlp-dashboard-lib/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/atlp-dashboard-lib/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/atlp-dashboard-lib/src/test.ts",
-            "tsConfig": "projects/atlp-dashboard-lib/tsconfig.spec.json",
-            "karmaConfig": "projects/atlp-dashboard-lib/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "lintFilePatterns": [
-              "projects/atlp-dashboard-lib/**/*.ts",
-              "projects/atlp-dashboard-lib/**/*.html"
-            ]
-          }
-        }
-      }
-    },
     "ng-dynamic-component": {
       "projectType": "library",
       "schematics": {
@@ -307,6 +259,46 @@
             "lintFilePatterns": [
               "projects/dashboard-designer/**/*.ts",
               "projects/dashboard-designer/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "dashboard-viewer": {
+      "projectType": "library",
+      "root": "projects/dashboard-viewer",
+      "sourceRoot": "projects/dashboard-viewer/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/dashboard-viewer/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/dashboard-viewer/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/dashboard-viewer/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/dashboard-viewer/src/test.ts",
+            "tsConfig": "projects/dashboard-viewer/tsconfig.spec.json",
+            "karmaConfig": "projects/dashboard-viewer/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/dashboard-viewer/**/*.ts",
+              "projects/dashboard-viewer/**/*.html"
             ]
           }
         }

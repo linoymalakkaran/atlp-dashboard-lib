@@ -17,11 +17,12 @@
 </div>
 
 <div class="inheritSize" *ngIf="dashboard?.length > 0">
-  <atlp-dashboard-lib
-    [dashboard]="dashboard"
-    [options]="options"
-    [widgetOptions]="widgetOptions"
-    [widgetSelectFn]="widgetSelectFn"
-  >
-  </atlp-dashboard-lib>
+  <gridster [options]="options">
+    <gridster-item [item]="item" *ngFor="let item of dashboard">
+      <ngx-dashboard-widget
+        [widgetOptions]="widgetOptions"
+        [widgetSelectFn]="widgetSelectFn"
+      ></ngx-dashboard-widget>
+    </gridster-item>
+  </gridster>
 </div>

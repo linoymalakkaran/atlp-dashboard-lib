@@ -25,7 +25,7 @@ interface Safe extends GridsterConfig {
   templateUrl: './dashboard-designer.component.html',
   styleUrls: ['./dashboard-designer.component.scss']
 })
-export class DashDesignerComponent implements OnInit {
+export class DashboardDesignerComponent implements OnInit {
   savedDashLayout = [];
   options: Safe;
   dashboard: any = [];

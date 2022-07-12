@@ -1,5 +1,5 @@
 {
-  "name": "atlp-dashboard",
+  "name": "maqta-dashboard",
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
@@ -25,15 +25,15 @@
     "build_lib_angular_gridster2": "ng build angular-gridster2 --configuration production",
     "npm_pack_angular_gridster2": "cd dist/angular-gridster2 && npm pack",
     "package_angular_gridster2": "npm run build_lib_angular_gridster2 && npm run npm_pack_angular_gridster2",
-    "build_lib_atlp_dashboard_lib": "ng build atlp-dashboard-lib --configuration production",
-    "npm_pack_atlp_dashboard_lib": "cd dist/atlp-dashboard-lib && npm pack",
-    "package_atlp_dashboard_lib": "npm run build_lib_atlp_dashboard_lib && npm run npm_pack_atlp_dashboard_lib",
+    "build_dashboard_viewer": "ng build dashboard-viewer --configuration production",
+    "npm_pack_dashboard_viewer": "cd dist/dashboard-viewer && npm pack",
+    "package_dashboard_viewer": "npm run build_dashboard_viewer && npm run npm_pack_dashboard_viewer",
     "build_lib_ng_dynamic_component": "ng build ng-dynamic-component --configuration production",
     "npm_pack_ng_dynamic_component": "cd dist/ng-dynamic-component && npm pack",
     "package_ng_dynamic_component": "npm run build_lib_ng_dynamic_component && npm run npm_pack_ng_dynamic_component",
     "package:all": "npm run package_angular_gridster2 && npm run package_ng_dynamic_component && npm run package_atlp_dashboard_lib && npm run package_dashboard_designer"
   },
-  "description": "atlp dashboard",
+  "description": "Maqta dashboard",
   "dependencies": {
     "@angular-architects/module-federation": "^14.3.9",
     "@angular/animations": "14.0.0",
@@ -46,10 +46,7 @@
     "@angular/platform-browser": "14.0.0",
     "@angular/platform-browser-dynamic": "14.0.0",
     "@angular/router": "14.0.0",
-    "angular-gridster2": "file:dist/angular-gridster2/angular-gridster2-14.0.1.tgz",
-    "atlp-dashboard-lib": "file:dist/atlp-dashboard-lib/atlp-dashboard-lib-0.0.1.tgz",
     "bootstrap": "^5.1.3",
-    "ng-dynamic-component": "file:dist/ng-dynamic-component/ng-dynamic-component-1.0.0.tgz",
     "ngx-markdown": "13.1.0",
     "rxjs": "7.5.5",
     "tslib": "2.4.0",

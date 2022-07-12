@@ -10,7 +10,6 @@ import { DashDesignerComponent } from './components/dash-designer/dash-designer.
 import { DashHomeComponent } from './components/dash-home/dash-home.component';
 import { DashboardDesignerModule } from 'dashboard-designer';
 import { GridsterModule } from 'angular-gridster2';
-import { AtlpDashboardLibModule } from 'atlp-dashboard-lib/lib/atlp-dashboard-lib.module';
 
 @NgModule({
   declarations: [DashHomeComponent, DashDesignerComponent],
@@ -23,7 +22,6 @@ import { AtlpDashboardLibModule } from 'atlp-dashboard-lib/lib/atlp-dashboard-li
     GridsterModule,
     MatMenuModule,
     MatFormFieldModule,
-    AtlpDashboardLibModule,
     DashboardDesignerModule
   ]
 })

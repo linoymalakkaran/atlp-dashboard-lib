@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, '../../coverage/atlp-dashboard-lib'),
+      dir: require('path').join(__dirname, '../../coverage/dashboard-viewer'),
       subdir: '.',
       reporters: [
         { type: 'html' },

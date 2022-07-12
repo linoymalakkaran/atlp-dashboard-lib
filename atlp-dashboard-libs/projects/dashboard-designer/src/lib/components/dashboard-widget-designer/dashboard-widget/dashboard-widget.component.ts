@@ -2,11 +2,11 @@ import { Component, ViewChild, ViewContainerRef, Input } from '@angular/core';
 import { loadRemoteModule } from '@angular-architects/module-federation';
 
 @Component({
-  selector: 'atlp-dashboard-widget',
-  templateUrl: './atlp-dashboard-widget.component.html',
-  styleUrls: ['./atlp-dashboard-widget.component.scss']
+  selector: 'ngx-dashboard-widget',
+  templateUrl: './dashboard-widget.component.html',
+  styleUrls: ['./dashboard-widget.component.scss']
 })
-export class AtlpDashboardWidgetComponent {
+export class DashboardWidgetComponent {
   widgetComponent: any = null;
   @Input() widgetOptions: any = null;
   @Input() widgetSelectFn?: (widgetName: string) => string;
