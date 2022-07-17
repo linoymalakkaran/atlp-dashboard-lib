@@ -1,0 +1,325 @@
+{
+	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+	"version": 1,
+	"newProjectRoot": "projects",
+	"projects": {
+		"gridster-app": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				},
+				"@schematics/angular:application": {
+					"strict": true
+				}
+			},
+			"root": "",
+			"sourceRoot": "src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"preserveSymlinks": true,
+						"outputPath": "dist/gridster-app",
+						"index": "src/index.html",
+						"main": "src/main.ts",
+						"polyfills": "src/polyfills.ts",
+						"tsConfig": "tsconfig.app.json",
+						"assets": [
+							"src/favicon.ico",
+							"src/assets"
+						],
+						"styles": [
+							"src/styles.scss",
+							"src/theme.scss"
+						],
+						"scripts": [
+							"node_modules/marked/marked.min.js"
+						],
+						"extraWebpackConfig": "webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"baseHref": "/gridster-app/",
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "2mb",
+									"maximumError": "6mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "6kb",
+									"maximumError": "10kb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.prod.ts"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "webpack.prod.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "gridster-app:build:production",
+							"extraWebpackConfig": "webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "gridster-app:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 6201,
+						"publicHost": "http://localhost:6201",
+						"extraWebpackConfig": "webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "gridster-app:build",
+						"extraWebpackConfig": "webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "src/test.ts",
+						"polyfills": "src/polyfills.ts",
+						"tsConfig": "tsconfig.spec.json",
+						"karmaConfig": "karma.conf.js",
+						"assets": [
+							"src/favicon.ico",
+							"src/assets"
+						],
+						"styles": [
+							"src/styles.scss",
+							"src/theme.scss"
+						],
+						"scripts": [
+							"node_modules/marked/marked.min.js"
+						]
+					}
+				},
+				"lint": {
+					"builder": "@angular-eslint/builder:lint",
+					"options": {
+						"lintFilePatterns": [
+							"src/**/*.ts",
+							"src/**/*.html"
+						]
+					}
+				},
+				"deploy": {
+					"builder": "angular-cli-ghpages:deploy",
+					"options": {
+						"repo": "https://GH_TOKEN@github.com/tiberiuzuld/angular-gridster2.git",
+						"name": "Tiberiu Zuld",
+						"email": "tiberiuzuld@gmail.com"
+					}
+				}
+			}
+		},
+		"angular-gridster2": {
+			"projectType": "library",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				},
+				"@schematics/angular:application": {
+					"strict": true
+				}
+			},
+			"root": "projects/angular-gridster2",
+			"sourceRoot": "projects/angular-gridster2/src",
+			"prefix": "gridster",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "projects/angular-gridster2/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"project": "projects/angular-gridster2/ng-package.prod.json",
+							"tsConfig": "projects/angular-gridster2/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/angular-gridster2/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/angular-gridster2/src/test.ts",
+						"tsConfig": "projects/angular-gridster2/tsconfig.spec.json",
+						"karmaConfig": "projects/angular-gridster2/karma.conf.js"
+					}
+				},
+				"lint": {
+					"builder": "@angular-eslint/builder:lint",
+					"options": {
+						"lintFilePatterns": [
+							"projects/angular-gridster2/**/*.ts",
+							"projects/angular-gridster2/**/*.html"
+						]
+					}
+				}
+			}
+		},
+		"ng-dynamic-component": {
+			"projectType": "library",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				},
+				"@schematics/angular:application": {
+					"strict": true
+				}
+			},
+			"root": "projects/ng-dynamic-component",
+			"sourceRoot": "projects/ng-dynamic-component/src",
+			"prefix": "ndc",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"configurations": {
+						"production": {
+							"project": "projects/ng-dynamic-component/ng-package.json",
+							"tsConfig": "projects/ng-dynamic-component/tsconfig.lib.json"
+						},
+						"development": {
+							"tsConfig": "projects/ng-dynamic-component/tsconfig.lib.json"
+						}
+					},
+					"options": {
+						"tsConfig": "projects/ng-dynamic-component/tsconfig.lib.json",
+						"project": "projects/ng-dynamic-component/ng-package.json"
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-builders/jest:run",
+					"options": {}
+				},
+				"lint": {
+					"builder": "@angular-eslint/builder:lint",
+					"options": {
+						"lintFilePatterns": [
+							"projects/ng-dynamic-component/**/*.ts",
+							"projects/ng-dynamic-component/**/*.html"
+						]
+					}
+				}
+			}
+		},
+		"dashboard-designer": {
+			"projectType": "library",
+			"root": "projects/dashboard-designer",
+			"sourceRoot": "projects/dashboard-designer/src",
+			"prefix": "lib",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "projects/dashboard-designer/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/dashboard-designer/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/dashboard-designer/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/dashboard-designer/src/test.ts",
+						"tsConfig": "projects/dashboard-designer/tsconfig.spec.json",
+						"karmaConfig": "projects/dashboard-designer/karma.conf.js"
+					}
+				},
+				"lint": {
+					"builder": "@angular-eslint/builder:lint",
+					"options": {
+						"lintFilePatterns": [
+							"projects/dashboard-designer/**/*.ts",
+							"projects/dashboard-designer/**/*.html"
+						]
+					}
+				}
+			}
+		},
+		"dashboard-viewer": {
+			"projectType": "library",
+			"root": "projects/dashboard-viewer",
+			"sourceRoot": "projects/dashboard-viewer/src",
+			"prefix": "lib",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "projects/dashboard-viewer/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/dashboard-viewer/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/dashboard-viewer/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/dashboard-viewer/src/test.ts",
+						"tsConfig": "projects/dashboard-viewer/tsconfig.spec.json",
+						"karmaConfig": "projects/dashboard-viewer/karma.conf.js"
+					}
+				},
+				"lint": {
+					"builder": "@angular-eslint/builder:lint",
+					"options": {
+						"lintFilePatterns": [
+							"projects/dashboard-viewer/**/*.ts",
+							"projects/dashboard-viewer/**/*.html"
+						]
+					}
+				}
+			}
+		}
+	},
+	"cli": {
+		"packageManager": "npm",
+		"analytics": "43f0cc4d-52e0-4bb5-a18d-b0bb569a75d1",
+		"schematicCollections": [
+			"@angular-eslint/schematics"
+		]
+	}
+}

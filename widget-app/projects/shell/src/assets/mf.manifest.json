@@ -1,0 +1,18 @@
+{
+	"flights_widget": {
+		"remoteEntry": "http://localhost:5201/remoteEntry.js",
+
+		"exposedModule": "./Module",
+		"displayName": "Flights",
+		"routePath": "flights",
+		"ngModuleName": "FlightsModule"
+	},
+	"booking_widget": {
+		"remoteEntry": "http://localhost:5202/remoteEntry.js",
+
+		"exposedModule": "./Module",
+		"displayName": "Bookings",
+		"routePath": "bookings",
+		"ngModuleName": "BookingsModule"
+	}
+}

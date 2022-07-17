@@ -1,0 +1,16 @@
+{
+  "name": "ng-dynamic-component",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git"
+  },
+  "peerDependencies": {
+    "@angular/common": "^14.0.0",
+    "@angular/core": "^14.0.0",
+    "rxjs": ">=6.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  }
+}

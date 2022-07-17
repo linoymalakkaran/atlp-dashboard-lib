@@ -1,0 +1,27 @@
+<div
+  class="wrapper overlay-blur air"
+  fxFlex="none"
+  fxLayout="column"
+  fxLayoutAlign="start none"
+>
+  <div class="dashboard-wrap">
+    <div class="dashboard-body" fxLayout="row">
+      <div class="dashboard-content" fxLayout="column">
+        <div class="dashboard-row mb-32 charts-wrap" fxLayout="row">
+          <div class="charts-content-wrap">
+            <div class="charts-content">
+              <div class="chart">
+                <app-bar-chart
+                  [chartData]="barChartData"
+                  [chartId]="'chartBarBigAir'"
+                  [chartOptions]="barChartOptions"
+                >
+                </app-bar-chart>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
