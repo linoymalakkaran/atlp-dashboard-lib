@@ -1,10 +1,4 @@
-import {
-  Component,
-  ViewChild,
-  ViewContainerRef,
-  Input,
-  ChangeDetectorRef
-} from '@angular/core';
+import { Component, ViewChild, ViewContainerRef, Input } from '@angular/core';
 import { loadRemoteModule } from '@angular-architects/module-federation';
 
 @Component({
@@ -16,28 +10,25 @@ export class DashboardWidgetComponent {
   widgetComponent: any = null;
   @Input() widgetOptions: any = null;
   @Input() widgetSelectFn?: (widgetName: string) => string;
-  @ViewChild('vc', { read: ViewContainerRef, static: false })
+  @ViewChild('vc', { read: ViewContainerRef, static: true })
   viewContainer: ViewContainerRef | undefined;
 
-  constructor(private ref: ChangeDetectorRef) {}
+  constructor() // @Inject(ComponentFactoryResolver) private cfr // @Inject(Injector) private injector,
+  {}
 
   widgetSelect(widgetName: string) {
     this.widgetComponent = this.widgetSelectFn(widgetName);
   }
 
-  async loadMfeWidget(widgetOption): Promise<void> {
+  async loadWidget(): Promise<void> {
     debugger;
     const m = await loadRemoteModule({
-      type: widgetOption.type,
-      remoteEntry: widgetOption.hostUrl,
-      exposedModule: widgetOption.exposedModule
+      type: 'module',
+      remoteEntry: 'http://localhost:5555/remoteEntry.js',
+      //remoteEntry: 'http://localhost:5201/remoteEntry.js',
+      exposedModule: './Component'
     });
-    const ref = this.viewContainer.createComponent(
-      m[widgetOption.componentName]
-    );
-    // const compInstance = ref.instance;
-    setInterval(() => {
-      this.ref.markForCheck();
-    }, 1000);
+    const ref = this.viewContainer.createComponent(m.FlightsSearchStandalone);
+    const compInstance = ref.instance;
   }
 }

@@ -11,41 +11,23 @@
         ...
       </button>
       <mat-menu #menu="matMenu">
-        <ng-container *ngIf="!widgetOptions.ismfeWidgets">
-          <ng-container *ngFor="let widgetName of widgetOptions.widgetTypes">
-            <button mat-menu-item (click)="widgetSelect(widgetName)">
-              <mat-icon>add_location</mat-icon>
-              <span>{{ widgetName }}</span>
-            </button>
-          </ng-container>
-        </ng-container>
-        <ng-container *ngIf="widgetOptions.ismfeWidgets">
-          <ng-container *ngFor="let widgetOption of widgetOptions.mfeWidgetTypes">
-            <!-- <button mat-menu-item (click)="widgetSelect(widgetName)">
+        <ng-container *ngFor="let widgetName of widgetOptions.widgetTypes">
+          <button mat-menu-item (click)="widgetSelect(widgetName)">
+            <mat-icon>add_location</mat-icon>
+            <span>{{ widgetName }}</span>
+          </button>
+          <!-- <button mat-menu-item (click)="loadWidget()">
             <mat-icon>add_location</mat-icon>
             <span>{{ widgetName }}</span>
           </button> -->
-            <button mat-menu-item (click)="loadMfeWidget(widgetOption)">
-              <mat-icon>add_location</mat-icon>
-              <span>{{ widgetOption.displayName }}</span>
-            </button>
-          </ng-container>
         </ng-container>
       </mat-menu>
     </div>
   </div>
   <div class="card-body">
-    <ng-container *ngIf="!widgetOptions.ismfeWidgets">
-      <ng-container *ngIf="widgetComponent">
-        <ng-container *ngComponentOutlet="widgetComponent"></ng-container>
-      </ng-container>
-      <!-- <ng-container *ngIf="widgetComponent">
+    <ng-container *ngIf="widgetComponent">
       <ndc-dynamic [ndcDynamicComponent]="widgetComponent"></ndc-dynamic>
-    </ng-container> -->
     </ng-container>
-    <ng-container *ngIf="widgetOptions.ismfeWidgets">
-      <span>Drag here</span>
-      <ng-container #vc></ng-container>
-    </ng-container>
+    <!-- <ng-container #vc></ng-container> -->
   </div>
 </div>

@@ -19,6 +19,7 @@ interface Safe extends GridsterConfig {
   styleUrls: ['./dashboard-widget-designer.component.scss']
 })
 export class DashboardWidgetDesignerComponent implements OnInit {
+  @Input() layout;
   savedDashLayout = [];
   options: Safe;
   dashboard: any = [];
@@ -39,7 +40,12 @@ export class DashboardWidgetDesignerComponent implements OnInit {
       this.ref.detectChanges();
     });
     this.dashboardDesignerService.getSavedLayouts('moduleId');
-  }
+
+    this.layout.resizeFn$.subscribe(()=>{
+      alert('resized');
+}); 
+
+}
 
   changedOptions(): void {
     if (this.options.api && this.options.api.optionsChanged) {

@@ -1,4 +1,4 @@
-<div class="card page-wrap">
+<div class="card page-wrap inheritSize test-xxx">
   <div class="card-header p-1">
     <form [formGroup]="form">
       <div class="row">
@@ -30,6 +30,10 @@
         </div>
 
         <div class="col-2 d-flex justify-content-end">
+          <button class="btn btn-danger pull-right" (click)="layout.toggleLeft()">
+            LEFT SIDE MENU
+          </button>
+
           <button class="btn btn-secondary pull-right" (click)="addItem()">
             <mat-icon>add</mat-icon>
           </button>
@@ -44,7 +48,10 @@
 </div>
 <div class="inheritSize" *ngIf="dashboard?.length > 0">
   <gridster [options]="options">
-    <gridster-item [item]="item" *ngFor="let item of dashboard">
+    <gridster-item [item]="item" *ngFor="let item of dashboard" 
+    cdkDrop    
+    (cdkDropListDropped) = "onDrop($event)" 
+    >
       <div class="button-holder">
         <div class="gridster-item-content" *ngIf="item?.hasContent">
           <div class="stuff p-5">

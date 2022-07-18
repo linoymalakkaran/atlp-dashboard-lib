@@ -1,0 +1,32 @@
+#DashboardDesigner {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-size: 100%;
+
+  @import "bootstrap/scss/functions";
+  @import "bootstrap/scss/variables";
+  @import "bootstrap/scss/mixins";
+  @import "variables";
+  @import "utilities";
+  @import "layout";
+  @import "icons";
+
+
+  //Overriding bootstrap Theme........
+  $theme-colors: map-remove($theme-colors, "info", "dark");
+  $theme-colors: (
+    "primary": $primary-color,
+    "secondary": $secondary-color,
+    "light": $light,
+    "warning": $warning-color,
+  );
+
+  $navbar-light-color: #212529;
+  $navbar-light-hover-color: #6610f2;
+  $navbar-light-active-color: #6610f2;
+  $primary-color-rgb: red;
+
+  @import "bootstrap/scss/bootstrap.scss";
+  @import "app";
+}

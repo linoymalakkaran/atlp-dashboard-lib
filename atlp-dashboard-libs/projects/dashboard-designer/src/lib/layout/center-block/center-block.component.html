@@ -1,0 +1,19 @@
+
+<div *ngIf="!editMode" class="inheritSize">
+    <ngx-dashboard-designer [layout]="layout"></ngx-dashboard-designer>
+
+</div>
+
+<div *ngIf="editMode" class="inheritSize">
+    <ngx-dashboard-widget-designer 
+    [layout]="layout"
+    [widgetSelectFn]="widgetSelect"
+    [widgetOptions]="widgetOptions"
+  ></ngx-dashboard-widget-designer>
+</div>
+
+
+
+
+
+

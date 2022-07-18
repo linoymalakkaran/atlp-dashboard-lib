@@ -1,4 +1,4 @@
-<div class="card page-wrap">
+<div class="card page-wrap inheritSize">
   <div class="card-header p-1" *ngIf="activeLayout">
     <div class="row">
       <div class="col-6">
@@ -18,7 +18,7 @@
 
 <div class="inheritSize" *ngIf="dashboard?.length > 0">
   <gridster [options]="options">
-    <gridster-item [item]="item" *ngFor="let item of dashboard">
+    <gridster-item [item]="item" *ngFor="let item of dashboard"  cdkDrop>
       <ngx-dashboard-widget
         [widgetOptions]="widgetOptions"
         [widgetSelectFn]="widgetSelectFn"

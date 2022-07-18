@@ -1,4 +1,5 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { CdkDragDrop } from '@angular/cdk/drag-drop';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -26,11 +27,15 @@ interface Safe extends GridsterConfig {
   styleUrls: ['./dashboard-designer.component.scss']
 })
 export class DashboardDesignerComponent implements OnInit {
+  @Input() layout;
+
   savedDashLayout = [];
   options: Safe;
   dashboard: any = [];
   activeLayout: any = null;
   gridInstance: any;
+
+  itemDetails:  any = [];
 
   form: FormGroup;
 
@@ -38,7 +43,7 @@ export class DashboardDesignerComponent implements OnInit {
     private dashService: DashboardDesignerService,
     private fb: FormBuilder,
     private ref: ChangeDetectorRef
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -51,6 +56,11 @@ export class DashboardDesignerComponent implements OnInit {
     this.options = this.gridInstance.options;
     this.dashboard = this.gridInstance.dashboardItems;
     this.ref.detectChanges();
+
+    this.layout.resizeFn$.subscribe(() => {
+      alert('resized');
+    });
+
   }
 
   changedOptions(): void {
@@ -80,4 +90,18 @@ export class DashboardDesignerComponent implements OnInit {
     this.dashService.saveLayoutByEvent(this.gridInstance);
     alert('Layout Saved SuccessFully');
   }
+
+
+  onDrop(event: any) {
+    alert('Droped');
+    // if (event.previousContainer === event.container) {
+    //    moveItemInArray(event.container.data, 
+    //       event.previousIndex, event.currentIndex);
+    // } else {
+    //    transferArrayItem(event.previousContainer.data,
+    //    event.container.data,
+    //    event.previousIndex,
+    //    event.currentIndex);
+    // }
+ }
 }
